@@ -35,12 +35,9 @@ Bundle 'scrooloose/nerdtree'
 
 " Syntaxes
 Bundle 'leshill/vim-json'
-Bundle 'puppetlabs/puppet-syntax-vim'
 Bundle 'jtratner/vim-flavored-markdown'
 Bundle 'othree/html5.vim'
 Bundle 'itspriddle/vim-jquery'
-Bundle 'atourino/jinja.vim'
-Bundle 'saltstack/salt-vim'
 Bundle 'ntpeters/vim-better-whitespace'
 
 " Ruby
@@ -50,7 +47,6 @@ Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-rake'
 
 " Fun, but not useful
-Bundle 'altercation/vim-colors-solarized'
 Bundle 'skammer/vim-css-color'
 Bundle 'mgutz/vim-colors'
 
@@ -72,7 +68,7 @@ set wildignore+=*.sw?                            " Vim swap files
 set wildignore+=*.DS_Store                       " OSX bullshit
 set wildignore+=*.luac                           " Lua byte code
 set wildignore+=*.pyc                            " Python byte code
-set wildignore+=**.class                          " Cursed Java class files
+set wildignore+=**.class                         " Cursed Java class files
 
 " Ignore in buffer explorer
 let g:netrw_liststyle= 1 " Tree-mode
@@ -115,7 +111,7 @@ if has("gui_running")
 endif
 
 " Default background & theme
-"set background=dark
+"set background=light
 "colorscheme solarized
 
 " Special characters for hilighting non-priting spaces/tabs/etc.
@@ -234,20 +230,11 @@ let g:ctrlp_mruf_max = 250 " number of recently opened files
 "nmap ; :CtrlPBuffer<CR>
 
 " Double rainbow - What does it mean!?
-let g:rainbow_active = 1
+"let g:rainbow_active = 1
 
 set laststatus=2
 let g:syntastic_enable_signs = 1
 let g:syntastic_auto_jump = 0
-let g:syntastic_puppet_lint_disable = 0
-
-" Airline configs
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
-
-if !exists('g:airline_symbols')
-	let g:airline_symbols = {}
-endif
 
 " NerdTree
 map <leader>n :NERDTreeToggle<CR>
