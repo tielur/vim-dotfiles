@@ -20,18 +20,18 @@ Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
 
 " System
-Bundle 'vim-scripts/Gist.vim'
-Bundle 'majutsushi/tagbar'
-Bundle 'rking/ag.vim'
-Bundle 'tomtom/tcomment_vim'
-Bundle 'tpope/vim-surround'
+"Bundle 'vim-scripts/Gist.vim'
+"Bundle 'majutsushi/tagbar'
+"Bundle 'rking/ag.vim'
+"Bundle 'tomtom/tcomment_vim'
+"Bundle 'tpope/vim-surround'
 Bundle 'scrooloose/syntastic'
 Bundle 'Raimondi/delimitMate'
 Bundle 'luochen1990/rainbow'
 Bundle 'kien/ctrlp.vim'
-Bundle 'mhinz/vim-signify'
+"Bundle 'mhinz/vim-signify'
 Bundle 'scrooloose/nerdtree'
-Bundle 'jistr/vim-nerdtree-tabs'
+"Bundle 'jistr/vim-nerdtree-tabs'
 
 " Syntaxes
 Bundle 'leshill/vim-json'
@@ -43,20 +43,16 @@ Bundle 'atourino/jinja.vim'
 Bundle 'saltstack/salt-vim'
 Bundle 'ntpeters/vim-better-whitespace'
 
-" Python
-Bundle 'nvie/vim-flake8'
-Bundle 'fs111/pydoc.vim'
-
 " Ruby
 Bundle "vim-ruby/vim-ruby"
 Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-rake'
 
 " Fun, but not useful
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'skammer/vim-css-color'
 Bundle 'mgutz/vim-colors'
-Bundle 'ehamberg/vim-cute-python'
-Bundle 'bling/vim-airline'
 
 " Required after vundle plugin definitions
 filetype plugin indent on
@@ -119,8 +115,8 @@ if has("gui_running")
 endif
 
 " Default background & theme
-set background=dark
-colorscheme solarized
+"set background=dark
+"colorscheme solarized
 
 " Special characters for hilighting non-priting spaces/tabs/etc.
 set list listchars=tab:»\ ,trail:·
@@ -182,13 +178,6 @@ autocmd FileType php setlocal colorcolumn=100
 " HTML configurations
 autocmd FileType html setlocal shiftwidth=4 tabstop=4 softtabstop=4 noexpandtab
 
-" Python configurations
-autocmd FileType python setlocal shiftwidth=4 expandtab tabstop=4 softtabstop=4
-autocmd FileType python setlocal colorcolumn=80
-autocmd FileType python map <buffer> <F4> :call Flake8()<CR>
-autocmd FileType python autocmd BufWritePre * :%s/\s\+$//e
-autocmd FileType python set omnifunc=pythoncomplete#Complete
-
 " Javascript configurations
 au BufNewFile,BufReadPost *.js setlocal shiftwidth=2 expandtab
 
@@ -235,14 +224,14 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-stand
 let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
 let g:ctrlp_root_markers = ['.git']
 "let g:ctrlp_working_path_mode = 'ra' " search for nearest ancestor like .git, .hg, and the directory of the current file
-let g:ctrlp_match_window_bottom = 0 " show the match window at the top of the screen
-let g:ctrlp_max_height = 10 " maxiumum height of match window
+"let g:ctrlp_match_window_bottom = 0 " show the match window at the top of the screen
+let g:ctrlp_max_height = 5 " maxiumum height of match window
 let g:ctrlp_switch_buffer = 'et' " jump to a file if it's open already
 let g:ctrlp_use_caching = 1 " enable caching
 let g:ctrlp_clear_cache_on_exit=0 " speed up by not removing clearing cache evertime
 let g:ctrlp_show_hidden = 0 " don't show me dotfiles
 let g:ctrlp_mruf_max = 250 " number of recently opened files
-nmap ; :CtrlPBuffer<CR>
+"nmap ; :CtrlPBuffer<CR>
 
 " Double rainbow - What does it mean!?
 let g:rainbow_active = 1
@@ -261,7 +250,29 @@ if !exists('g:airline_symbols')
 endif
 
 " NerdTree
-map <leader>t :NERDTreeToggle<CR>
-let NERDTreeIgnore=['\.pyc$', '\~$']
-let g:nerdtree_tabs_open_on_gui_startup = 0
+map <leader>n :NERDTreeToggle<CR>
+"let NERDTreeIgnore=['\.pyc$', '\~$']
+let g:nerdtree_tabs_open_on_gui_startup=0
 let g:nerdtree_tabs_open_on_console_startup = 0
+
+map <leader><left> :vertical resize -5<cr>
+map <leader><right> :vertical resize +5<cr>
+
+"No one likes q anyways...
+nmap Q <nop>
+inoremap <silent> <Esc> <Esc>`^
+
+" fix whitespace
+nmap <silent> <leader>w m`:%s/\s\+$//e<cr>``:noh<cr>
+
+" easy buffer switching
+nnoremap <leader><leader> <c-^>
+
+" Move around splits with <c-hjkl>
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+
+" Search CTags
+nnoremap <leader>. :CtrlPTag<cr>
