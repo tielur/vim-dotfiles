@@ -137,8 +137,8 @@ set foldlevel=99
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
 " I CAN HAZ NORMAL REGEXES?
-nnoremap / /\v
-vnoremap / /\v
+"nnoremap / /\v
+"vnoremap / /\v
 
 " Make sure we hilight extra whitespace in the most annoying way possible.
 " highlight ExtraWhitespace ctermbg=red guibg=red
