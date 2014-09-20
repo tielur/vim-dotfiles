@@ -224,11 +224,12 @@ let g:ctrlp_root_markers = ['.git']
 "let g:ctrlp_match_window_bottom = 0 " show the match window at the top of the screen
 let g:ctrlp_max_height = 5 " maxiumum height of match window
 let g:ctrlp_switch_buffer = 'et' " jump to a file if it's open already
-let g:ctrlp_use_caching = 1 " enable caching
+"let g:ctrlp_use_caching = 1 " enable caching
 let g:ctrlp_clear_cache_on_exit=0 " speed up by not removing clearing cache evertime
 let g:ctrlp_show_hidden = 0 " don't show me dotfiles
-let g:ctrlp_mruf_max = 250 " number of recently opened files
+let g:ctrlp_mruf_max = 50 " number of recently opened files
 "nmap ; :CtrlPBuffer<CR>
+nnoremap <silent> <leader>T :ClearCtrlPCache<cr>\|:CtrlP<cr>
 
 " Double rainbow - What does it mean!?
 "let g:rainbow_active = 1
