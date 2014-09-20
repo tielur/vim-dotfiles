@@ -93,6 +93,7 @@ set backupskip=/tmp/*,/private/tmp/*
 set ffs=unix,dos,mac "Default file types
 set nowrap        " don't wrap lines
 set showmatch     " set show matching parenthesis
+set matchtime=1   " speed up the matching between parenthesis highlighting
 set ignorecase    " ignore case when searching
 set smartcase     " ignore case if search pattern is all lowercase,
                   "  case-sensitive otherwise
