@@ -45,6 +45,7 @@ Bundle "vim-ruby/vim-ruby"
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-rake'
+Bundle 'thoughtbot/vim-rspec'
 
 " Fun, but not useful
 Bundle 'skammer/vim-css-color'
@@ -265,3 +266,9 @@ nnoremap <c-l> <c-w>l
 
 " Search CTags
 nnoremap <leader>. :CtrlPTag<cr>
+
+" RSpec.vim mappings
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
