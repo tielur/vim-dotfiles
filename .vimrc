@@ -32,6 +32,8 @@ Bundle 'kien/ctrlp.vim'
 "Bundle 'mhinz/vim-signify'
 Bundle 'scrooloose/nerdtree'
 "Bundle 'jistr/vim-nerdtree-tabs'
+Bundle 'mattn/webapi-vim'
+Bundle 'mattn/gist-vim'
 
 " Syntaxes
 Bundle 'leshill/vim-json'
