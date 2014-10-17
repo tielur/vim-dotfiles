@@ -177,6 +177,7 @@ autocmd FileType php setlocal colorcolumn=100
 
 " HTML configurations
 autocmd FileType html setlocal shiftwidth=4 tabstop=4 softtabstop=4 noexpandtab
+au BufNewFile,BufRead *.handlebars set file type=html
 
 " Javascript configurations
 au BufNewFile,BufReadPost *.js setlocal shiftwidth=2 expandtab
