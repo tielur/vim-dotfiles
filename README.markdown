@@ -11,16 +11,16 @@ sweet spots.
 
 **NOTE**: If you have existing files in `$HOME/.vim` or `$HOME/.vimrc`, make sure you take appropriate backups before performing any of the following steps.
 
- - First install Vundle, as per their [instructions](https://github.com/gmarik/vundle):
+ - First get my vim-dotfiles & symlink the `.vimrc` to your `$HOME/.vimrc`:
 
 ```sh
-$ git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+git clone https://github.com/tielur/vim-dotfiles.git ~/.vim && ln -s ~/.vim/.vimrc ~/.vimrc
 ```
 
- - Next, get my vim-dotfiles & symlink the `.vimrc` to your `$HOME/.vimrc`:
+ - Next install Vundle, as per their [instructions](https://github.com/gmarik/vundle):
 
 ```sh
-$ git clone git@github.com:jperras/vim-dotfiles.git ~/.vim && ln -s ~/.vim/.vimrc ~/.vimrc
+git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 ```
 
  - Finally, we need to launch Vim and then invoke the appropriate Vundle commands to install all of the bundles using the `:BundleInstall` command. When this is completed
